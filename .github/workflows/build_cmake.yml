@@ -200,19 +200,6 @@ jobs:
 
           execute_process(COMMAND ccache -s)
 
-      - name: Run tests
-        shell: cmake -P {0}
-        run: |
-
-          execute_process(
-            COMMAND ctest -j ${N}
-            WORKING_DIRECTORY build
-            RESULT_VARIABLE result
-            OUTPUT_VARIABLE output
-            ERROR_VARIABLE output
-            ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE
-          )
-
       - name: Install Strip
         run: cmake --install build --prefix instdir --strip
 
