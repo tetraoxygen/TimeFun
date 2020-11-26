@@ -34,7 +34,7 @@ int main()
 		std::cout << std::endl << std::endl;
 	} while (userWantsToContinue());
 	
-	return 1;
+	return 0;
 }
 
 // MARK: Functions
@@ -159,3 +159,5 @@ bool userWantsToContinue(){
 	
 	return shouldContinue;
 }
+
+
