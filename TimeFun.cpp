@@ -1,9 +1,9 @@
 /*
-	Program:		TimeFun
-	Author:			Charlie Welsh
-	Date:			2020-11-25
-	Dev Env:		Would be a rant -- you know what I use
-	Description:	Converts between 24 and 12-hour time.
+Program:		TimeFun
+Author:			Charlie Welsh
+Date:			2020-11-25
+Dev Env:		Would be a rant -- you know what I use
+Description:	Converts between 24 and 12-hour time.
 */
 
 #include <iostream>
@@ -20,7 +20,7 @@ void printTime12(int hour, int minute, bool isPM);
 bool userWantsToContinue();
 
 int main()
-{
+	{
 	do {
 		int hour, minute;
 		getTime24(hour, minute);
@@ -33,20 +33,18 @@ int main()
 		printTime24(hour, minute);
 		std::cout << std::endl << std::endl;
 	} while (userWantsToContinue());
-	
-	return 0;
 }
 
 // MARK: Functions
 
 /*
-	Function:		getTime24
-	Description:	Gets 24 hour time from the user and passes the hours and minutes of the user-entered time by reference to their respective variables.
-	Arguments:
-		hour (i&):		variable to pass hour from input to
-		minute (i&):	variable to pass minute from input to
-	Return Value:
-		None, all passed by reference.
+Function:		getTime24
+Description:	Gets 24 hour time from the user and passes the hours and minutes of the user-entered time by reference to their respective variables.
+Arguments:
+	hour (i&):		variable to pass hour from input to
+	minute (i&):	variable to pass minute from input to
+Return Value:
+	None, all passed by reference.
 */
 
 void getTime24(int &hour, int &minute){
@@ -59,24 +57,29 @@ void getTime24(int &hour, int &minute){
 		// If cin 
 		if (!std::cin.good() || hour > 23 || minute > 59) {
 			std::cout << "That wasn't a valid time. ";
+			// Many things break if I don't clear the cin.good status and ignore whatever's on the current line (future cin calls get prefilled data, and that if statement would always get true).
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		} else {
+			// Many things break if I don't clear the cin.good status and ignore whatever's on the current line (future cin calls get prefilled data, and that if statement would always get true).
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			break;
 		}
+		
 	}
 	
-	// Many things break if I don't clear the cin.good status and ignore whatever's on the current line (future cin calls get prefilled data, and that if statement would always get true).
-	std::cin.clear();
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	
 }
 
 /*
-	Function:		printTime24
-	Description:	Prints 24 hour time from a given hour and minute value
-	Arguments:
-		hour (i):		hour to print as part of time
-		minute (i):	minute to print as part of time
-	Return Value:
-		None
+Function:		printTime24
+Description:	Prints 24 hour time from a given hour and minute value
+Arguments:
+	hour (i):		hour to print as part of time
+	minute (i):	minute to print as part of time
+Return Value:
+	None
 */
 
 void printTime24(int hour, int minute){
@@ -86,13 +89,13 @@ void printTime24(int hour, int minute){
 // Strictly speaking, the latter printTime12() is the one I was asked to implement, but the former seemed significantly more elegant, so I used that instead. Still implemented the former, just to make sure.
 
 /*
-	Function:		printTime12
-	Description:	Prints 12 hour time from a given hour and minute value
-	Arguments:
-		hour (i):		hour to print as part of time
-		minute (i):	minute to print as part of time
-	Return Value:
-		None
+Function:		printTime12
+Description:	Prints 12 hour time from a given hour and minute value
+Arguments:
+	hour (i):		hour to print as part of time
+	minute (i):	minute to print as part of time
+Return Value:
+	None
 */
 
 void printTime12(int hour, int minute){
@@ -115,14 +118,14 @@ void printTime12(int hour, int minute){
 }
 
 /*
-	Function:		printTime12
-	Description:	Prints 12 hour time from a given hour and minute value, and a manually specified AM/PM
-	Arguments:
-		hour (i):		hour to print as part of time
-		minute (i):		minute to print as part of time
-		isPM (b):		if the specified time is PM. if false, time defaults to AM.
-	Return Value:
-		None
+Function:		printTime12
+Description:	Prints 12 hour time from a given hour and minute value, and a manually specified AM/PM
+Arguments:
+	hour (i):		hour to print as part of time
+	minute (i):		minute to print as part of time
+	isPM (b):		if the specified time is PM. if false, time defaults to AM.
+Return Value:
+	None
 */
 
 void printTime12(int hour, int minute, bool isPM){
@@ -134,16 +137,16 @@ void printTime12(int hour, int minute, bool isPM){
 		std::cout << " a.m.";
 	}
 }
-	
+
 /*
-	Function:		userWantsToContinue
-	Description:	Prompts the user if they want to run the program again.
-	Arguments:
-		None
-	Return Value:
-		true if user wants to continue, false otherwise.
+Function:		userWantsToContinue
+Description:	Prompts the user if they want to run the program again.
+Arguments:
+	None
+Return Value:
+	true if user wants to continue, false otherwise.
 */
-	
+
 bool userWantsToContinue(){
 	std::string userInput;
 	bool shouldContinue = false;
@@ -159,5 +162,3 @@ bool userWantsToContinue(){
 	
 	return shouldContinue;
 }
-
-
