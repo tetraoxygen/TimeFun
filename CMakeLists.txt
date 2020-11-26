@@ -1,15 +1,15 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(main)
+project(TimeFun)
 
-add_executable(main main.cpp)
+add_executable(TimeFun TimeFun.cpp)
 
-install(TARGETS main)
+install(TARGETS TimeFun)
 
 enable_testing()
-add_test(NAME main COMMAND main)
+add_test(NAME TimeFun COMMAND TimeFun)
 
 
 IF (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-	target_link_libraries(main -static)
+	target_link_libraries(TimeFun -static)
 ENDIF()
