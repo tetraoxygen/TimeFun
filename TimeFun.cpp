@@ -33,6 +33,8 @@ int main()
 		printTime24(hour, minute);
 		std::cout << std::endl << std::endl;
 	} while (userWantsToContinue());
+	
+	return 1;
 }
 
 // MARK: Functions
